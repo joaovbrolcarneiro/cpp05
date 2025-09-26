@@ -1,6 +1,7 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
+// default constructor - make abstract form with unknown name and worst grades
 AForm::AForm() : _name("Unknown"), _signed(false), _gradeToSign(150), _gradeToExecute(150)
 {
 }

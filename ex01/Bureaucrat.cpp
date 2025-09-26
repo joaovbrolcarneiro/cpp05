@@ -1,15 +1,17 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
+// default constructor - make bureaucrat with unknown name and worst grade
 Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(150)
 {
 }
 
+// constructor with name and grade - check if grade is valid
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade)
 {
-    if (grade < 1)
+    if (grade < 1)        // grade 1 is best, cannot be better
         throw GradeTooHighException();
-    if (grade > 150)
+    if (grade > 150)      // grade 150 is worst, cannot be worse
         throw GradeTooLowException();
 }
 

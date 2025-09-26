@@ -1,5 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
+// default constructor - make shrubbery form with unknown target
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation", 145, 137), _target("Unknown")
 {
 }
@@ -28,13 +29,15 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
+// execute the shrubbery creation - make file with ascii tree
 void ShrubberyCreationForm::executeAction() const
 {
-    std::string filename = _target + "_shrubbery";
+    std::string filename = _target + "_shrubbery";  // make filename with target name
     std::ofstream file(filename.c_str());
     
-    if (file.is_open())
+    if (file.is_open())  // if file opened successfully
     {
+        // write ascii tree to file
         file << "       _-_" << std::endl;
         file << "    /~~   ~~\\" << std::endl;
         file << " /~~         ~~\\" << std::endl;
@@ -44,6 +47,6 @@ void ShrubberyCreationForm::executeAction() const
         file << "_- -   | | _- _" << std::endl;
         file << "  _ -  | |   -_" << std::endl;
         file << "      // \\\\" << std::endl;
-        file.close();
+        file.close();  // close the file
     }
 }

@@ -6,6 +6,8 @@
 #include "Intern.hpp"
 #include <iostream>
 
+// main function to test intern class and dynamic form creation
+// test creating different forms by name and executing them
 int main()
 {
     std::cout << "=== Test 1: Intern creates Shrubbery Creation Form ===" << std::endl;

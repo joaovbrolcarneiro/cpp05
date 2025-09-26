@@ -6,12 +6,13 @@ Form::Form() : _name("Unknown"), _signed(false), _gradeToSign(150), _gradeToExec
 {
 }
 
+// constructor with all info - check if grades are valid
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) 
     : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-    if (gradeToSign < 1 || gradeToExecute < 1)
+    if (gradeToSign < 1 || gradeToExecute < 1)    // grades cannot be better than 1
         throw GradeTooHighException();
-    if (gradeToSign > 150 || gradeToExecute > 150)
+    if (gradeToSign > 150 || gradeToExecute > 150) // grades cannot be worse than 150
         throw GradeTooLowException();
 }
 

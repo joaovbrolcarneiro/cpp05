@@ -2,6 +2,8 @@
 #include "Form.hpp"
 #include <iostream>
 
+// main function to test bureaucrat and form classes
+// test signing forms with different bureaucrats
 int main()
 {
     std::cout << "=== Test 1: Valid form creation ===" << std::endl;

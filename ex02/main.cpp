@@ -5,6 +5,8 @@
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
+// main function to test abstract forms and concrete implementations
+// test signing and executing different types of forms
 int main()
 {
     std::cout << "=== Test 1: Shrubbery Creation Form ===" << std::endl;
