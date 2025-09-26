@@ -1,6 +1,8 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
+// main function to test bureaucrat class
+// test all the functions and exceptions
 int main()
 {
     std::cout << "=== Test 1: Valid bureaucrat creation ===" << std::endl;

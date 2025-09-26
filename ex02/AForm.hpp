@@ -7,29 +7,34 @@
 
 class Bureaucrat;
 
+// abstract form class - base class for all forms
+// cannot be used directly, must be inherited
 class AForm
 {
 private:
-    const std::string _name;
-    bool _signed;
-    const int _gradeToSign;
-    const int _gradeToExecute;
+    const std::string _name;        // name of the form
+    bool _signed;                   // is form signed or not
+    const int _gradeToSign;         // grade needed to sign form
+    const int _gradeToExecute;      // grade needed to execute form
 
 public:
-    AForm();
-    AForm(const std::string& name, int gradeToSign, int gradeToExecute);
-    AForm(const AForm& other);
-    AForm& operator=(const AForm& other);
-    virtual ~AForm();
+    // constructors and destructor
+    AForm();                                    // default constructor
+    AForm(const std::string& name, int gradeToSign, int gradeToExecute); // constructor with all info
+    AForm(const AForm& other);                   // copy constructor
+    AForm& operator=(const AForm& other);        // assignment operator
+    virtual ~AForm();                             // virtual destructor (important for inheritance)
 
-    const std::string& getName() const;
-    bool isSigned() const;
-    int getGradeToSign() const;
-    int getGradeToExecute() const;
+    // getter functions
+    const std::string& getName() const;         // get form name
+    bool isSigned() const;                      // check if form is signed
+    int getGradeToSign() const;                 // get grade needed to sign
+    int getGradeToExecute() const;              // get grade needed to execute
 
-    void beSigned(const Bureaucrat& bureaucrat);
-    void execute(const Bureaucrat& executor) const;
-    virtual void executeAction() const = 0;
+    // functions for form operations
+    void beSigned(const Bureaucrat& bureaucrat); // try to sign form with bureaucrat
+    void execute(const Bureaucrat& executor) const; // try to execute form with bureaucrat
+    virtual void executeAction() const = 0;        // pure virtual function - must be implemented by child classes
 
     class GradeTooHighException : public std::exception
     {

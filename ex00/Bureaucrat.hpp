@@ -5,38 +5,45 @@
 #include <string>
 #include <exception>
 
+// bureaucrat class - like a person who work in office
+// has name and grade (1 is best, 150 is worst)
 class Bureaucrat
 {
 private:
-    const std::string _name;
-    int _grade;
+    const std::string _name;  // name of bureaucrat (cannot change)
+    int _grade;               // grade from 1 to 150
 
 public:
-    Bureaucrat();
-    Bureaucrat(const std::string& name, int grade);
-    Bureaucrat(const Bureaucrat& other);
-    Bureaucrat& operator=(const Bureaucrat& other);
-    ~Bureaucrat();
+    // constructors and destructor
+    Bureaucrat();                                    // default constructor
+    Bureaucrat(const std::string& name, int grade); // constructor with name and grade
+    Bureaucrat(const Bureaucrat& other);             // copy constructor
+    Bureaucrat& operator=(const Bureaucrat& other); // assignment operator
+    ~Bureaucrat();                                   // destructor
 
-    const std::string& getName() const;
-    int getGrade() const;
+    // getter functions
+    const std::string& getName() const;  // get the name
+    int getGrade() const;                // get the grade
 
-    void incrementGrade();
-    void decrementGrade();
+    // functions to change grade
+    void incrementGrade();  // make grade better (lower number)
+    void decrementGrade();  // make grade worse (higher number)
 
+    // exception classes for when grade is wrong
     class GradeTooHighException : public std::exception
     {
     public:
-        virtual const char* what() const throw();
+        virtual const char* what() const throw();  // return error message
     };
 
     class GradeTooLowException : public std::exception
     {
     public:
-        virtual const char* what() const throw();
+        virtual const char* what() const throw();  // return error message
     };
 };
 
+// operator to print bureaucrat info
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

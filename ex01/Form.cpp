@@ -1,6 +1,7 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
+// default constructor - make form with unknown name and worst grades
 Form::Form() : _name("Unknown"), _signed(false), _gradeToSign(150), _gradeToExecute(150)
 {
 }
